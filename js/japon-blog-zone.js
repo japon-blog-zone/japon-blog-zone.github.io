@@ -38,3 +38,21 @@ jQuery(document).ready(function($) {
             });
     }
 });
+
+//Ajout dark-mode
+
+let mainPart = document.querySelector(".main");
+let switchButton = document.querySelector(".switch-button");
+
+
+function switchMode(){
+    mainPart.classList.toggle('night-mode');
+
+    if(mainPart.classList.contains('night-mode')){
+        switchButton.innerText = "Mode Jour ☀️";
+    }else{
+        switchButton.innerText = "Mode Nuit 🌙";
+    }
+}
+
+switchButton.addEventListener('click', switchMode);

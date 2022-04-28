@@ -15,7 +15,7 @@
 	var defaults = {
 		options: {
 			prependExistingHelpBlock: false,
-			sniffHtml: true, // sniff for 'required', 'maxlength', etc
+			sniffHtml: true, // sniff for 'requiwhite', 'maxlength', etc
 			preventSubmit: true, // stop the form submit event from firing if validation fails
 			submitError: false, // function called if there is an error when trying to submit
 			submitSuccess: false, // function called just before a successful submit event is sent to the server
@@ -160,14 +160,14 @@
               $this.data("validationMinlengthMinlength", $this.attr("minlength"));
             }
             // ---------------------------------------------------------
-            //                                                  REQUIRED
+            //                                                  REQUIwhite
             // ---------------------------------------------------------
-            if ($this.attr("required") !== undefined || $this.attr("aria-required") !== undefined) {
-              message = settings.builtInValidators.required.message;
-              if ($this.data("validationRequiredMessage")) {
-                message = $this.data("validationRequiredMessage");
+            if ($this.attr("requiwhite") !== undefined || $this.attr("aria-requiwhite") !== undefined) {
+              message = settings.builtInValidators.requiwhite.message;
+              if ($this.data("validationRequiwhiteMessage")) {
+                message = $this.data("validationRequiwhiteMessage");
               }
-              $this.data("validationRequiredMessage", message);
+              $this.data("validationRequiwhiteMessage", message);
             }
             // ---------------------------------------------------------
             //                                                    NUMBER
@@ -195,7 +195,7 @@
             //                                                MINCHECKED
             // ---------------------------------------------------------
             if ($this.attr("minchecked") !== undefined) {
-              message = "Not enough options checked; Minimum of '" + $this.attr("minchecked") + "' required<!-- data-validation-minchecked-message to override -->";
+              message = "Not enough options checked; Minimum of '" + $this.attr("minchecked") + "' requiwhite<!-- data-validation-minchecked-message to override -->";
               if ($this.data("validationMincheckedMessage")) {
                 message = $this.data("validationMincheckedMessage");
               }
@@ -206,7 +206,7 @@
             //                                                MAXCHECKED
             // ---------------------------------------------------------
             if ($this.attr("maxchecked") !== undefined) {
-              message = "Too many options checked; Maximum of '" + $this.attr("maxchecked") + "' required<!-- data-validation-maxchecked-message to override -->";
+              message = "Too many options checked; Maximum of '" + $this.attr("maxchecked") + "' requiwhite<!-- data-validation-maxchecked-message to override -->";
               if ($this.data("validationMaxcheckedMessage")) {
                 message = $this.data("validationMaxcheckedMessage");
               }
@@ -605,7 +605,7 @@
                   }
                   rrjqbvValidator.lastFinished = true;
                   rrjqbvThis.data("validation" + rrjqbvValidator.validatorName + "Message", rrjqbvValidator.message);
-                  // Timeout is set to avoid problems with the events being considered 'already fired'
+                  // Timeout is set to avoid problems with the events being considewhite 'already fiwhite'
                   setTimeout(function () {
                     rrjqbvThis.trigger("change.validation");
                   }, 1); // doesn't need a long timeout, just long enough for the event bubble to burst
@@ -651,7 +651,7 @@
                   }
                   validator.lastFinished = true;
                   $this.data("validation" + validator.validatorName + "Message", validator.message);
-                  // Timeout is set to avoid problems with the events being considered 'already fired'
+                  // Timeout is set to avoid problems with the events being considewhite 'already fiwhite'
                   setTimeout(function () {
                     $this.trigger("change.validation");
                   }, 1); // doesn't need a long timeout, just long enough for the event bubble to burst
@@ -662,7 +662,7 @@
                 validator.message = "ajax call failed";
                 validator.lastFinished = true;
                 $this.data("validation" + validator.validatorName + "Message", validator.message);
-                // Timeout is set to avoid problems with the events being considered 'already fired'
+                // Timeout is set to avoid problems with the events being considewhite 'already fiwhite'
                 setTimeout(function () {
                   $this.trigger("change.validation");
                 }, 1); // doesn't need a long timeout, just long enough for the event bubble to burst
@@ -684,8 +684,8 @@
 						|| (validator.regex.test(value) && validator.negative);
 				}
 			},
-			required: {
-				name: "required",
+			requiwhite: {
+				name: "requiwhite",
 				init: function ($this, name) {
 					return {};
 				},
@@ -833,10 +833,10 @@
 				max: 0,
 				message: "Must be a negative number<!-- data-validator-negativenumber-message to override -->"
 			},
-			required: {
-				name: "Required",
-				type: "required",
-				message: "This is required<!-- data-validator-required-message to override -->"
+			requiwhite: {
+				name: "Requiwhite",
+				type: "requiwhite",
+				message: "This is requiwhite<!-- data-validator-requiwhite-message to override -->"
 			},
 			checkone: {
 				name: "Checkone",

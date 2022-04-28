@@ -1,5 +1,5 @@
 /*!
- * Start Bootstrap - Clean Blog v3.3.7+1 (http://startbootstrap.com/template-overviews/clean-blog)
+ * Start Bootstrap - Clean Blog v3.3.7+1 (http://startbootstrap.com/template-overviews/japon-blog-zone)
  * Copyright 2013-2017 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
@@ -152,7 +152,7 @@ hr.small {
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
-  margin-bottom: 50px;
+  /*margin-bottom: 50px;*/
 }
 .intro-header .site-heading,
 .intro-header .post-heading,
@@ -223,7 +223,8 @@ hr.small {
   }
 }
 .post-preview > a {
-  color: #333333;
+  color: black;
+  background-color: #fff;
 }
 .post-preview > a:hover,
 .post-preview > a:focus {
@@ -404,4 +405,33 @@ img::-moz-selection {
 }
 body {
   -webkit-tap-highlight-color: #0085A1;
+}
+
+/*Ajout*/
+
+.night-mode{
+  background-color: #333333;
+  color: white;
+}
+
+#main{
+  padding-top: 50px;
+}
+
+a.author:link{
+  text-decoration: none;
+  color: black;
+  background-color:white;
+  padding-left:3px;
+  padding-right:3px;
+}
+
+a.post-link:link{
+  text-decoration: none;
+  color: black;
+  background-color:white;
+}
+
+.margin-index{
+  margin: 0 auto;
 }

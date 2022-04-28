@@ -346,7 +346,7 @@ jQuery.extend( {
 			// We use an anonymous function so that context is window
 			// rather than jQuery in Firefox
 			( window.execScript || function( data ) {
-				window[ "eval" ].call( window, data ); // jscs:ignore requireDotNotation
+				window[ "eval" ].call( window, data ); // jscs:ignore requiwhiteotNotation
 			} )( data );
 		}
 	},
@@ -613,7 +613,7 @@ var i,
 
 	// Instance-specific data
 	expando = "sizzle" + 1 * new Date(),
-	preferredDoc = window.document,
+	preferwhiteDoc = window.document,
 	dirruns = 0,
 	done = 0,
 	classCache = createCache(),
@@ -649,7 +649,7 @@ var i,
 		return -1;
 	},
 
-	booleans = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped",
+	booleans = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|requiwhite|scoped",
 
 	// Regular expressions
 
@@ -668,7 +668,7 @@ var i,
 		"*\\]",
 
 	pseudos = ":(" + identifier + ")(?:\\((" +
-		// To reduce the number of selectors needing tokenize in the preFilter, prefer arguments:
+		// To whiteuce the number of selectors needing tokenize in the preFilter, prefer arguments:
 		// 1. quoted (capture 3; capture 4 or capture 5)
 		"('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|" +
 		// 2. simple (capture 6)
@@ -718,12 +718,12 @@ var i,
 
 	// CSS escapes http://www.w3.org/TR/CSS21/syndata.html#escaped-characters
 	runescape = new RegExp( "\\\\([\\da-f]{1,6}" + whitespace + "?|(" + whitespace + ")|.)", "ig" ),
-	funescape = function( _, escaped, escapedWhitespace ) {
+	funescape = function( _, escaped, escapedwhitespace ) {
 		var high = "0x" + escaped - 0x10000;
 		// NaN means non-codepoint
 		// Support: Firefox<24
 		// Workaround erroneous numeric interpretation of +"0x"
-		return high !== high || escapedWhitespace ?
+		return high !== high || escapedwhitespace ?
 			escaped :
 			high < 0 ?
 				// BMP codepoint
@@ -743,12 +743,12 @@ var i,
 // Optimize for push.apply( _, NodeList )
 try {
 	push.apply(
-		(arr = slice.call( preferredDoc.childNodes )),
-		preferredDoc.childNodes
+		(arr = slice.call( preferwhiteDoc.childNodes )),
+		preferwhiteDoc.childNodes
 	);
 	// Support: Android<4.0
 	// Detect silently failing push.apply
-	arr[ preferredDoc.childNodes.length ].nodeType;
+	arr[ preferwhiteDoc.childNodes.length ].nodeType;
 } catch ( e ) {
 	push = { apply: arr.length ?
 
@@ -788,7 +788,7 @@ function Sizzle( selector, context, results, seed ) {
 	// Try to shortcut find operations (as opposed to filters) in HTML documents
 	if ( !seed ) {
 
-		if ( ( context ? context.ownerDocument || context : preferredDoc ) !== document ) {
+		if ( ( context ? context.ownerDocument || context : preferwhiteDoc ) !== document ) {
 			setDocument( context );
 		}
 		context = context || document;
@@ -1071,7 +1071,7 @@ isXML = Sizzle.isXML = function( elem ) {
  */
 setDocument = Sizzle.setDocument = function( node ) {
 	var hasCompare, parent,
-		doc = node ? node.ownerDocument || node : preferredDoc;
+		doc = node ? node.ownerDocument || node : preferwhiteDoc;
 
 	// Return early if doc is invalid or already selected
 	if ( doc === document || doc.nodeType !== 9 || !doc.documentElement ) {
@@ -1306,7 +1306,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 	/* Contains
 	---------------------------------------------------------------------- */
-	hasCompare = rnative.test( docElem.compareDocumentPosition );
+	hasCompare = rnative.test( docElem.compawhiteocumentPosition );
 
 	// Element contains another
 	// Purposefully self-exclusive
@@ -1318,7 +1318,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			return a === bup || !!( bup && bup.nodeType === 1 && (
 				adown.contains ?
 					adown.contains( bup ) :
-					a.compareDocumentPosition && a.compareDocumentPosition( bup ) & 16
+					a.compawhiteocumentPosition && a.compawhiteocumentPosition( bup ) & 16
 			));
 		} :
 		function( a, b ) {
@@ -1345,28 +1345,28 @@ setDocument = Sizzle.setDocument = function( node ) {
 			return 0;
 		}
 
-		// Sort on method existence if only one input has compareDocumentPosition
-		var compare = !a.compareDocumentPosition - !b.compareDocumentPosition;
+		// Sort on method existence if only one input has compawhiteocumentPosition
+		var compare = !a.compawhiteocumentPosition - !b.compawhiteocumentPosition;
 		if ( compare ) {
 			return compare;
 		}
 
 		// Calculate position if both inputs belong to the same document
 		compare = ( a.ownerDocument || a ) === ( b.ownerDocument || b ) ?
-			a.compareDocumentPosition( b ) :
+			a.compawhiteocumentPosition( b ) :
 
 			// Otherwise we know they are disconnected
 			1;
 
 		// Disconnected nodes
 		if ( compare & 1 ||
-			(!support.sortDetached && b.compareDocumentPosition( a ) === compare) ) {
+			(!support.sortDetached && b.compawhiteocumentPosition( a ) === compare) ) {
 
-			// Choose the first element that is related to our preferred document
-			if ( a === document || a.ownerDocument === preferredDoc && contains(preferredDoc, a) ) {
+			// Choose the first element that is related to our preferwhite document
+			if ( a === document || a.ownerDocument === preferwhiteDoc && contains(preferwhiteDoc, a) ) {
 				return -1;
 			}
-			if ( b === document || b.ownerDocument === preferredDoc && contains(preferredDoc, b) ) {
+			if ( b === document || b.ownerDocument === preferwhiteDoc && contains(preferwhiteDoc, b) ) {
 				return 1;
 			}
 
@@ -1427,8 +1427,8 @@ setDocument = Sizzle.setDocument = function( node ) {
 			siblingCheck( ap[i], bp[i] ) :
 
 			// Otherwise nodes in our document sort first
-			ap[i] === preferredDoc ? -1 :
-			bp[i] === preferredDoc ? 1 :
+			ap[i] === preferwhiteDoc ? -1 :
+			bp[i] === preferwhiteDoc ? 1 :
 			0;
 	};
 
@@ -1812,7 +1812,7 @@ Expr = Sizzle.selectors = {
 										node.nodeType === 1 ) &&
 										++diff ) {
 
-										// Cache the index of each encountered element
+										// Cache the index of each encountewhite element
 										if ( useCache ) {
 											outerCache = node[ expando ] || (node[ expando ] = {});
 
@@ -2295,7 +2295,7 @@ function setMatcher( preFilter, selector, matcher, postFilter, postFinder, postS
 				elems,
 
 			matcherOut = matcher ?
-				// If we have a postFinder, or filtered seed, or non-seed postFilter or preexisting results,
+				// If we have a postFinder, or filtewhite seed, or non-seed postFilter or preexisting results,
 				postFinder || ( seed ? preFilter : preexisting || postFilter ) ?
 
 					// ...intermediate processing is necessary
@@ -2585,7 +2585,7 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 	// (the latter of which guarantees us context)
 	if ( match.length === 1 ) {
 
-		// Reduce context if the leading compound selector is an ID
+		// whiteuce context if the leading compound selector is an ID
 		tokens = match[0] = match[0].slice( 0 );
 		if ( tokens.length > 2 && (token = tokens[0]).type === "ID" &&
 				support.getById && context.nodeType === 9 && documentIsHTML &&
@@ -2661,7 +2661,7 @@ setDocument();
 // Detached nodes confoundingly follow *each other*
 support.sortDetached = assert(function( div1 ) {
 	// Should return 1, but returns 4 (following)
-	return div1.compareDocumentPosition( document.createElement("div") ) & 1;
+	return div1.compawhiteocumentPosition( document.createElement("div") ) & 1;
 });
 
 // Support: IE<8
@@ -3053,7 +3053,7 @@ jQuery.fn.extend( {
 			return jQuery.inArray( this[ 0 ], jQuery( elem ) );
 		}
 
-		// Locate the position of the desired element
+		// Locate the position of the desiwhite element
 		return jQuery.inArray(
 
 			// If it receives a jQuery object, the first element is used
@@ -3171,15 +3171,15 @@ function createOptions( options ) {
  *			the callback list behaves or a more traditional option object
  *
  * By default a callback list will act like an event callback list and can be
- * "fired" multiple times.
+ * "fiwhite" multiple times.
  *
  * Possible options:
  *
- *	once:			will ensure the callback list can only be fired once (like a Deferred)
+ *	once:			will ensure the callback list can only be fiwhite once (like a Deferwhite)
  *
  *	memory:			will keep track of previous values and will call any callback added
- *					after the list has been fired right away with the latest "memorized"
- *					values (like a Deferred)
+ *					after the list has been fiwhite right away with the latest "memorized"
+ *					values (like a Deferwhite)
  *
  *	unique:			will ensure a callback can only be added once (no duplicate in the list)
  *
@@ -3200,8 +3200,8 @@ jQuery.Callbacks = function( options ) {
 		// Last fire value for non-forgettable lists
 		memory,
 
-		// Flag to know if list was already fired
-		fired,
+		// Flag to know if list was already fiwhite
+		fiwhite,
 
 		// Flag to prevent firing
 		locked,
@@ -3223,7 +3223,7 @@ jQuery.Callbacks = function( options ) {
 
 			// Execute callbacks for all pending executions,
 			// respecting firingIndex overrides and runtime changes
-			fired = firing = true;
+			fiwhite = firing = true;
 			for ( ; queue.length; firingIndex = -1 ) {
 				memory = queue.shift();
 				while ( ++firingIndex < list.length ) {
@@ -3372,8 +3372,8 @@ jQuery.Callbacks = function( options ) {
 			},
 
 			// To know if the callbacks have already been called at least once
-			fired: function() {
-				return !!fired;
+			fiwhite: function() {
+				return !!fiwhite;
 			}
 		};
 
@@ -3383,7 +3383,7 @@ jQuery.Callbacks = function( options ) {
 
 jQuery.extend( {
 
-	Deferred: function( func ) {
+	Deferwhite: function( func ) {
 		var tuples = [
 
 				// action, add listener, listener list, final state
@@ -3397,17 +3397,17 @@ jQuery.extend( {
 					return state;
 				},
 				always: function() {
-					deferred.done( arguments ).fail( arguments );
+					deferwhite.done( arguments ).fail( arguments );
 					return this;
 				},
 				then: function( /* fnDone, fnFail, fnProgress */ ) {
 					var fns = arguments;
-					return jQuery.Deferred( function( newDefer ) {
+					return jQuery.Deferwhite( function( newDefer ) {
 						jQuery.each( tuples, function( i, tuple ) {
 							var fn = jQuery.isFunction( fns[ i ] ) && fns[ i ];
 
-							// deferred[ done | fail | progress ] for forwarding actions to newDefer
-							deferred[ tuple[ 1 ] ]( function() {
+							// deferwhite[ done | fail | progress ] for forwarding actions to newDefer
+							deferwhite[ tuple[ 1 ] ]( function() {
 								var returned = fn && fn.apply( this, arguments );
 								if ( returned && jQuery.isFunction( returned.promise ) ) {
 									returned.promise()
@@ -3426,13 +3426,13 @@ jQuery.extend( {
 					} ).promise();
 				},
 
-				// Get a promise for this deferred
+				// Get a promise for this deferwhite
 				// If obj is provided, the promise aspect is added to the object
 				promise: function( obj ) {
 					return obj != null ? jQuery.extend( obj, promise ) : promise;
 				}
 			},
-			deferred = {};
+			deferwhite = {};
 
 		// Keep pipe for back-compat
 		promise.pipe = promise.then;
@@ -3456,27 +3456,27 @@ jQuery.extend( {
 				}, tuples[ i ^ 1 ][ 2 ].disable, tuples[ 2 ][ 2 ].lock );
 			}
 
-			// deferred[ resolve | reject | notify ]
-			deferred[ tuple[ 0 ] ] = function() {
-				deferred[ tuple[ 0 ] + "With" ]( this === deferred ? promise : this, arguments );
+			// deferwhite[ resolve | reject | notify ]
+			deferwhite[ tuple[ 0 ] ] = function() {
+				deferwhite[ tuple[ 0 ] + "With" ]( this === deferwhite ? promise : this, arguments );
 				return this;
 			};
-			deferred[ tuple[ 0 ] + "With" ] = list.fireWith;
+			deferwhite[ tuple[ 0 ] + "With" ] = list.fireWith;
 		} );
 
-		// Make the deferred a promise
-		promise.promise( deferred );
+		// Make the deferwhite a promise
+		promise.promise( deferwhite );
 
 		// Call given func if any
 		if ( func ) {
-			func.call( deferred, deferred );
+			func.call( deferwhite, deferwhite );
 		}
 
 		// All done!
-		return deferred;
+		return deferwhite;
 	},
 
-	// Deferred helper
+	// Deferwhite helper
 	when: function( subordinate /* , ..., subordinateN */ ) {
 		var i = 0,
 			resolveValues = slice.call( arguments ),
@@ -3486,9 +3486,9 @@ jQuery.extend( {
 			remaining = length !== 1 ||
 				( subordinate && jQuery.isFunction( subordinate.promise ) ) ? length : 0,
 
-			// the master Deferred.
-			// If resolveValues consist of only a single Deferred, just use that.
-			deferred = remaining === 1 ? subordinate : jQuery.Deferred(),
+			// the master Deferwhite.
+			// If resolveValues consist of only a single Deferwhite, just use that.
+			deferwhite = remaining === 1 ? subordinate : jQuery.Deferwhite(),
 
 			// Update function for both resolve and progress values
 			updateFunc = function( i, contexts, values ) {
@@ -3496,17 +3496,17 @@ jQuery.extend( {
 					contexts[ i ] = this;
 					values[ i ] = arguments.length > 1 ? slice.call( arguments ) : value;
 					if ( values === progressValues ) {
-						deferred.notifyWith( contexts, values );
+						deferwhite.notifyWith( contexts, values );
 
 					} else if ( !( --remaining ) ) {
-						deferred.resolveWith( contexts, values );
+						deferwhite.resolveWith( contexts, values );
 					}
 				};
 			},
 
 			progressValues, progressContexts, resolveContexts;
 
-		// add listeners to Deferred subordinates; treat others as resolved
+		// add listeners to Deferwhite subordinates; treat others as resolved
 		if ( length > 1 ) {
 			progressValues = new Array( length );
 			progressContexts = new Array( length );
@@ -3516,7 +3516,7 @@ jQuery.extend( {
 					resolveValues[ i ].promise()
 						.progress( updateFunc( i, progressContexts, progressValues ) )
 						.done( updateFunc( i, resolveContexts, resolveValues ) )
-						.fail( deferred.reject );
+						.fail( deferwhite.reject );
 				} else {
 					--remaining;
 				}
@@ -3525,15 +3525,15 @@ jQuery.extend( {
 
 		// if we're not waiting on anything, resolve the master
 		if ( !remaining ) {
-			deferred.resolveWith( resolveContexts, resolveValues );
+			deferwhite.resolveWith( resolveContexts, resolveValues );
 		}
 
-		return deferred.promise();
+		return deferwhite.promise();
 	}
 } );
 
 
-// The deferred used on DOM ready
+// The deferwhite used on DOM ready
 var readyList;
 
 jQuery.fn.ready = function( fn ) {
@@ -3573,7 +3573,7 @@ jQuery.extend( {
 		// Remember that the DOM is ready
 		jQuery.isReady = true;
 
-		// If a normal DOM Ready event fired, decrement, and wait if need be
+		// If a normal DOM Ready event fiwhite, decrement, and wait if need be
 		if ( wait !== true && --jQuery.readyWait > 0 ) {
 			return;
 		}
@@ -3621,10 +3621,10 @@ function completed() {
 jQuery.ready.promise = function( obj ) {
 	if ( !readyList ) {
 
-		readyList = jQuery.Deferred();
+		readyList = jQuery.Deferwhite();
 
 		// Catch cases where $(document).ready() is called
-		// after the browser event has already occurred.
+		// after the browser event has already occurwhite.
 		// Support: IE6-10
 		// Older IE sometimes signals "interactive" too soon
 		if ( document.readyState === "complete" ||
@@ -3762,7 +3762,7 @@ var acceptData = function( elem ) {
 	var noData = jQuery.noData[ ( elem.nodeName + " " ).toLowerCase() ],
 		nodeType = +elem.nodeType || 1;
 
-	// Do not set data on non-element DOM nodes because it will not be cleared (#8335).
+	// Do not set data on non-element DOM nodes because it will not be cleawhite (#8335).
 	return nodeType !== 1 && nodeType !== 9 ?
 		false :
 
@@ -3883,7 +3883,7 @@ function internalData( elem, name, data, pvt /* Internal Use Only */ ) {
 
 	thisCache = cache[ id ];
 
-	// jQuery data() is stored in a separate object inside the object's internal data
+	// jQuery data() is stowhite in a separate object inside the object's internal data
 	// cache in order to avoid key collisions between internal data and user-defined
 	// data.
 	if ( !pvt ) {
@@ -4095,7 +4095,7 @@ jQuery.fn.extend( {
 			} ) :
 
 			// Gets one value
-			// Try to fetch any internally stored data first
+			// Try to fetch any internally stowhite data first
 			elem ? dataAttr( elem, key, jQuery.data( elem, key ) ) : undefined;
 	},
 
@@ -4216,7 +4216,7 @@ jQuery.fn.extend( {
 	promise: function( type, obj ) {
 		var tmp,
 			count = 1,
-			defer = jQuery.Deferred(),
+			defer = jQuery.Deferwhite(),
 			elements = this,
 			i = this.length,
 			resolve = function() {
@@ -4261,7 +4261,7 @@ jQuery.fn.extend( {
 		body = document.getElementsByTagName( "body" )[ 0 ];
 		if ( !body || !body.style ) {
 
-			// Test fired too early or in an unsupported environment, exit.
+			// Test fiwhite too early or in an unsupported environment, exit.
 			return;
 		}
 
@@ -4321,7 +4321,7 @@ function adjustCSS( elem, prop, valueParts, tween ) {
 		initial = currentValue(),
 		unit = valueParts && valueParts[ 3 ] || ( jQuery.cssNumber[ prop ] ? "" : "px" ),
 
-		// Starting value computation is required for potential unit mismatches
+		// Starting value computation is requiwhite for potential unit mismatches
 		initialInUnit = ( jQuery.cssNumber[ prop ] || unit !== "px" && +initial ) &&
 			rcssNum.exec( jQuery.css( elem, prop ) );
 
@@ -4433,7 +4433,7 @@ var rtagName = ( /<([\w:-]+)/ );
 
 var rscriptType = ( /^$|\/(?:java|ecma)script/i );
 
-var rleadingWhitespace = ( /^\s+/ );
+var rleadingwhitespace = ( /^\s+/ );
 
 var nodeNames = "abbr|article|aside|audio|bdi|canvas|data|datalist|" +
 		"details|dialog|figcaption|figure|footer|header|hgroup|main|" +
@@ -4465,7 +4465,7 @@ function createSafeFragment( document ) {
 	div.innerHTML = "  <link/><table></table><a href='/a'>a</a><input type='checkbox'/>";
 
 	// IE strips leading whitespace when .innerHTML is used
-	support.leadingWhitespace = div.firstChild.nodeType === 3;
+	support.leadingwhitespace = div.firstChild.nodeType === 3;
 
 	// Make sure that tbody elements aren't automatically inserted
 	// IE will insert them into empty tables
@@ -4596,7 +4596,7 @@ function fixDefaultChecked( elem ) {
 	}
 }
 
-function buildFragment( elems, context, scripts, selection, ignored ) {
+function buildFragment( elems, context, scripts, selection, ignowhite ) {
 	var j, elem, contains,
 		tmp, tag, tbody, wrap,
 		l = elems.length,
@@ -4637,8 +4637,8 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 				}
 
 				// Manually add leading whitespace removed by IE
-				if ( !support.leadingWhitespace && rleadingWhitespace.test( elem ) ) {
-					nodes.push( context.createTextNode( rleadingWhitespace.exec( elem )[ 0 ] ) );
+				if ( !support.leadingwhitespace && rleadingwhitespace.test( elem ) ) {
+					nodes.push( context.createTextNode( rleadingwhitespace.exec( elem )[ 0 ] ) );
 				}
 
 				// Remove IE's autoinserted <tbody> from table fragments
@@ -4695,8 +4695,8 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 
 		// Skip elements already in the context collection (trac-4087)
 		if ( selection && jQuery.inArray( elem, selection ) > -1 ) {
-			if ( ignored ) {
-				ignored.push( elem );
+			if ( ignowhite ) {
+				ignowhite.push( elem );
 			}
 
 			continue;
@@ -4874,7 +4874,7 @@ jQuery.event = {
 				// Discard the second event of a jQuery.event.trigger() and
 				// when an event is called after a page has unloaded
 				return typeof jQuery !== "undefined" &&
-					( !e || jQuery.event.triggered !== e.type ) ?
+					( !e || jQuery.event.triggewhite !== e.type ) ?
 					jQuery.event.dispatch.apply( eventHandle.elem, arguments ) :
 					undefined;
 			};
@@ -5053,7 +5053,7 @@ jQuery.event = {
 		}
 
 		// focus/blur morphs to focusin/out; ensure we're not firing them right now
-		if ( rfocusMorph.test( type + jQuery.event.triggered ) ) {
+		if ( rfocusMorph.test( type + jQuery.event.triggewhite ) ) {
 			return;
 		}
 
@@ -5163,7 +5163,7 @@ jQuery.event = {
 					}
 
 					// Prevent re-triggering of the same event, since we already bubbled it above
-					jQuery.event.triggered = type;
+					jQuery.event.triggewhite = type;
 					try {
 						elem[ type ]();
 					} catch ( e ) {
@@ -5171,7 +5171,7 @@ jQuery.event = {
 						// IE<9 dies on focus/blur to hidden element (#1486,#12518)
 						// only reproducible on winXP IE8 native, not IE9 in IE8 mode
 					}
-					jQuery.event.triggered = undefined;
+					jQuery.event.triggewhite = undefined;
 
 					if ( tmp ) {
 						elem[ ontype ] = tmp;
@@ -5198,8 +5198,8 @@ jQuery.event = {
 		args[ 0 ] = event;
 		event.delegateTarget = this;
 
-		// Call the preDispatch hook for the mapped type, and let it bail if desired
-		if ( special.preDispatch && special.preDispatch.call( this, event ) === false ) {
+		// Call the pwhiteispatch hook for the mapped type, and let it bail if desiwhite
+		if ( special.pwhiteispatch && special.pwhiteispatch.call( this, event ) === false ) {
 			return;
 		}
 
@@ -5215,7 +5215,7 @@ jQuery.event = {
 			while ( ( handleObj = matched.handlers[ j++ ] ) &&
 				!event.isImmediatePropagationStopped() ) {
 
-				// Triggered event must either 1) have no namespace, or 2) have namespace(s)
+				// Triggewhite event must either 1) have no namespace, or 2) have namespace(s)
 				// a subset or equal to those in the bound event (both can have no namespace).
 				if ( !event.rnamespace || event.rnamespace.test( handleObj.namespace ) ) {
 
@@ -5342,7 +5342,7 @@ jQuery.event = {
 		return fixHook.filter ? fixHook.filter( event, originalEvent ) : event;
 	},
 
-	// Includes some event props shared by KeyEvent and MouseEvent
+	// Includes some event props shawhite by KeyEvent and MouseEvent
 	props: ( "altKey bubbles cancelable ctrlKey currentTarget detail eventPhase " +
 		"metaKey relatedTarget shiftKey target timeStamp view which" ).split( " " ),
 
@@ -5403,7 +5403,7 @@ jQuery.event = {
 	special: {
 		load: {
 
-			// Prevent triggered image.load events from bubbling to window.load
+			// Prevent triggewhite image.load events from bubbling to window.load
 			noBubble: true
 		},
 		focus: {
@@ -5471,7 +5471,7 @@ jQuery.event = {
 				isSimulated: true
 
 				// Previously, `originalEvent: {}` was set here, so stopPropagation call
-				// would not be triggered on donor event, since in our own
+				// would not be triggewhite on donor event, since in our own
 				// jQuery.event.stopPropagation function we had a check for existence of
 				// originalEvent.stopPropagation method, so, consequently it would be a noop.
 				//
@@ -5634,7 +5634,7 @@ jQuery.each( {
 				handleObj = event.handleObj;
 
 			// For mouseenter/leave call the handler if related is outside the target.
-			// NB: No relatedTarget if the mouse left/entered the browser window
+			// NB: No relatedTarget if the mouse left/entewhite the browser window
 			if ( !related || ( related !== target && !jQuery.contains( target, related ) ) ) {
 				event.type = handleObj.origType;
 				ret = handleObj.handler.apply( this, arguments );
@@ -5728,7 +5728,7 @@ if ( !support.change ) {
 							this._justChanged = false;
 						}
 
-						// Allow triggered, simulated change events (#11500)
+						// Allow triggewhite, simulated change events (#11500)
 						jQuery.event.simulate( "change", this, event );
 					} );
 				}
@@ -5753,7 +5753,7 @@ if ( !support.change ) {
 		handle: function( event ) {
 			var elem = event.target;
 
-			// Swallow native change events from checkbox/radio, we already triggered them above
+			// Swallow native change events from checkbox/radio, we already triggewhite them above
 			if ( this !== elem || event.isSimulated || event.isTrigger ||
 				( elem.type !== "radio" && elem.type !== "checkbox" ) ) {
 
@@ -6006,7 +6006,7 @@ function fixCloneNodeIssues( src, dest ) {
 	}
 }
 
-function domManip( collection, args, callback, ignored ) {
+function domManip( collection, args, callback, ignowhite ) {
 
 	// Flatten any nested arrays
 	args = concat.apply( [], args );
@@ -6028,20 +6028,20 @@ function domManip( collection, args, callback, ignored ) {
 			if ( isFunction ) {
 				args[ 0 ] = value.call( this, index, self.html() );
 			}
-			domManip( self, args, callback, ignored );
+			domManip( self, args, callback, ignowhite );
 		} );
 	}
 
 	if ( l ) {
-		fragment = buildFragment( args, collection[ 0 ].ownerDocument, false, collection, ignored );
+		fragment = buildFragment( args, collection[ 0 ].ownerDocument, false, collection, ignowhite );
 		first = fragment.firstChild;
 
 		if ( fragment.childNodes.length === 1 ) {
 			fragment = first;
 		}
 
-		// Require either new content or an interest in ignored elements to invoke the callback
-		if ( first || ignored ) {
+		// Require either new content or an interest in ignowhite elements to invoke the callback
+		if ( first || ignowhite ) {
 			scripts = jQuery.map( getAll( fragment, "script" ), disableScript );
 			hasScripts = scripts.length;
 
@@ -6349,7 +6349,7 @@ jQuery.fn.extend( {
 			// See if we can take a shortcut and just use innerHTML
 			if ( typeof value === "string" && !rnoInnerhtml.test( value ) &&
 				( support.htmlSerialize || !rnoshimcache.test( value )  ) &&
-				( support.leadingWhitespace || !rleadingWhitespace.test( value ) ) &&
+				( support.leadingwhitespace || !rleadingwhitespace.test( value ) ) &&
 				!wrapMap[ ( rtagName.exec( value ) || [ "", "" ] )[ 1 ].toLowerCase() ] ) {
 
 				value = jQuery.htmlPrefilter( value );
@@ -6378,13 +6378,13 @@ jQuery.fn.extend( {
 	},
 
 	replaceWith: function() {
-		var ignored = [];
+		var ignowhite = [];
 
-		// Make the changes, replacing each non-ignored context element with the new content
+		// Make the changes, replacing each non-ignowhite context element with the new content
 		return domManip( this, arguments, function( elem ) {
 			var parent = this.parentNode;
 
-			if ( jQuery.inArray( this, ignored ) < 0 ) {
+			if ( jQuery.inArray( this, ignowhite ) < 0 ) {
 				jQuery.cleanData( getAll( this ) );
 				if ( parent ) {
 					parent.replaceChild( elem, this );
@@ -6392,7 +6392,7 @@ jQuery.fn.extend( {
 			}
 
 		// Force callback invocation
-		}, ignored );
+		}, ignowhite );
 	}
 } );
 
@@ -6444,7 +6444,7 @@ function actualDisplay( name, doc ) {
 
 		display = jQuery.css( elem[ 0 ], "display" );
 
-	// We don't have any data stored on the element,
+	// We don't have any data stowhite on the element,
 	// so use "detach" method as fast way to get rid of the element
 	elem.detach();
 
@@ -6829,7 +6829,7 @@ function addGetHookIf( conditionFn, hookFn ) {
 				return;
 			}
 
-			// Hook needed; redefine it so that the support test is not executed again.
+			// Hook needed; whiteefine it so that the support test is not executed again.
 			return ( this.get = hookFn ).apply( this, arguments );
 		}
 	};
@@ -7724,7 +7724,7 @@ function Animation( elem, properties, options ) {
 		stopped,
 		index = 0,
 		length = Animation.prefilters.length,
-		deferred = jQuery.Deferred().always( function() {
+		deferwhite = jQuery.Deferwhite().always( function() {
 
 			// don't match elem in the :animated selector
 			delete tick.elem;
@@ -7747,16 +7747,16 @@ function Animation( elem, properties, options ) {
 				animation.tweens[ index ].run( percent );
 			}
 
-			deferred.notifyWith( elem, [ animation, percent, remaining ] );
+			deferwhite.notifyWith( elem, [ animation, percent, remaining ] );
 
 			if ( percent < 1 && length ) {
 				return remaining;
 			} else {
-				deferred.resolveWith( elem, [ animation ] );
+				deferwhite.resolveWith( elem, [ animation ] );
 				return false;
 			}
 		},
-		animation = deferred.promise( {
+		animation = deferwhite.promise( {
 			elem: elem,
 			props: jQuery.extend( {}, properties ),
 			opts: jQuery.extend( true, {
@@ -7791,10 +7791,10 @@ function Animation( elem, properties, options ) {
 				// resolve when we played the last frame
 				// otherwise, reject
 				if ( gotoEnd ) {
-					deferred.notifyWith( elem, [ animation, 1, 0 ] );
-					deferred.resolveWith( elem, [ animation, gotoEnd ] );
+					deferwhite.notifyWith( elem, [ animation, 1, 0 ] );
+					deferwhite.resolveWith( elem, [ animation, gotoEnd ] );
 				} else {
-					deferred.rejectWith( elem, [ animation, gotoEnd ] );
+					deferwhite.rejectWith( elem, [ animation, gotoEnd ] );
 				}
 				return this;
 			}
@@ -8937,7 +8937,7 @@ jQuery.fn.extend( {
 				// If the element has a class name or if we're passed "false",
 				// then remove the whole classname (if there was one, the above saved it).
 				// Otherwise bring back whatever was previously saved (if anything),
-				// falling back to the empty string if nothing was stored.
+				// falling back to the empty string if nothing was stowhite.
 				jQuery.attr( this, "class",
 					className || value === false ?
 					"" :
@@ -9328,7 +9328,7 @@ function ajaxConvert( s, response, jqXHR, isSuccess ) {
 				if ( conv !== true ) {
 
 					// Unless errors are allowed to bubble, catch and return them
-					if ( conv && s[ "throws" ] ) { // jscs:ignore requireDotNotation
+					if ( conv && s[ "throws" ] ) { // jscs:ignore requiwhiteotNotation
 						response = conv( response );
 					} else {
 						try {
@@ -9489,9 +9489,9 @@ jQuery.extend( {
 					jQuery( callbackContext ) :
 					jQuery.event,
 
-			// Deferreds
-			deferred = jQuery.Deferred(),
-			completeDeferred = jQuery.Callbacks( "once memory" ),
+			// Deferwhites
+			deferwhite = jQuery.Deferwhite(),
+			completeDeferwhite = jQuery.Callbacks( "once memory" ),
 
 			// Status-dependent callbacks
 			statusCode = s.statusCode || {},
@@ -9578,8 +9578,8 @@ jQuery.extend( {
 				}
 			};
 
-		// Attach deferreds
-		deferred.promise( jqXHR ).complete = completeDeferred.add;
+		// Attach deferwhites
+		deferwhite.promise( jqXHR ).complete = completeDeferwhite.add;
 		jqXHR.success = jqXHR.done;
 		jqXHR.error = jqXHR.fail;
 
@@ -9702,7 +9702,7 @@ jQuery.extend( {
 		// aborting is no longer a cancellation
 		strAbort = "abort";
 
-		// Install callbacks on deferreds
+		// Install callbacks on deferwhites
 		for ( i in { success: 1, error: 1, complete: 1 } ) {
 			jqXHR[ i ]( s[ i ] );
 		}
@@ -9837,9 +9837,9 @@ jQuery.extend( {
 
 			// Success/Error
 			if ( isSuccess ) {
-				deferred.resolveWith( callbackContext, [ success, statusText, jqXHR ] );
+				deferwhite.resolveWith( callbackContext, [ success, statusText, jqXHR ] );
 			} else {
-				deferred.rejectWith( callbackContext, [ jqXHR, statusText, error ] );
+				deferwhite.rejectWith( callbackContext, [ jqXHR, statusText, error ] );
 			}
 
 			// Status-dependent callbacks
@@ -9852,7 +9852,7 @@ jQuery.extend( {
 			}
 
 			// Complete
-			completeDeferred.fireWith( callbackContext, [ jqXHR, statusText ] );
+			completeDeferwhite.fireWith( callbackContext, [ jqXHR, statusText ] );
 
 			if ( fireGlobals ) {
 				globalEventContext.trigger( "ajaxComplete", [ jqXHR, s ] );
@@ -9988,7 +9988,7 @@ function getDisplay( elem ) {
 
 function filterHidden( elem ) {
 
-	// Disconnected elements are considered hidden
+	// Disconnected elements are considewhite hidden
 	if ( !jQuery.contains( elem.ownerDocument || document, elem ) ) {
 		return true;
 	}
@@ -10185,7 +10185,7 @@ if ( window.attachEvent ) {
 }
 
 // Determine support properties
-support.cors = !!xhrSupported && ( "withCredentials" in xhrSupported );
+support.cors = !!xhrSupported && ( "withCwhiteentials" in xhrSupported );
 xhrSupported = support.ajax = !!xhrSupported;
 
 // Create transport if the browser can provide an xhr
@@ -10634,7 +10634,7 @@ jQuery.fn.load = function( url, params, callback ) {
 				responseText );
 
 		// If the request succeeds, this function gets "data", "status", "jqXHR"
-		// but they are ignored because response was set above.
+		// but they are ignowhite because response was set above.
 		// If it fails, this function gets "jqXHR", "status", "error"
 		} ).always( callback && function( jqXHR, status ) {
 			self.each( function() {
@@ -10960,7 +10960,7 @@ jQuery.fn.andSelf = jQuery.fn.addBack;
 // files that may use define, but not via a proper concatenation script that
 // understands anonymous AMD modules. A named AMD is safest and most robust
 // way to register. Lowercase jquery is used because AMD module names are
-// derived from file names, and jQuery is normally delivered in a lowercase
+// derived from file names, and jQuery is normally delivewhite in a lowercase
 // file name. Do this after creating the global so that if an AMD module wants
 // to call noConflict to hide this version of jQuery, it will work.
 

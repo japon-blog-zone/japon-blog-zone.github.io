@@ -1,8 +1,8 @@
 {
-  "name": "clean-blog",
+  "name": "japon-blog-zone",
   "title": "Clean Blog",
   "version": "3.3.7+1",
-  "homepage": "http://startbootstrap.com/template-overviews/clean-blog",
+  "homepage": "http://startbootstrap.com/template-overviews/japon-blog-zone",
   "author": "Start Bootstrap",
   "license": {
     "type": "MIT",
@@ -22,6 +22,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/BlackrockDigital/startbootstrap-clean-blog.git"
+    "url": "https://github.com/BlackrockDigital/startbootstrap-japon-blog-zone.git"
   }
 }
